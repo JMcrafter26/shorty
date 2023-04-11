@@ -1,4 +1,9 @@
 <?php
+
+if ( $_SERVER['REQUEST_METHOD']=='GET' && realpath(__FILE__) == realpath( $_SERVER['SCRIPT_FILENAME'] ) ) {
+    header( 'HTTP/1.0 403 Forbidden', TRUE, 403 );
+    die ("<h2>Access Denied!</h2> This file is protected and not available to public.");
+    }
 /**
  * Shorty: A simple URL shortener.
  *
@@ -210,7 +215,7 @@ class Shorty {
      */
     public function fetch($id) {
         $statement = $this->connection->prepare(
-            'SELECT * FROM urls WHERE id = ?'
+            'SELECT * FROM shorty_urls WHERE id = ?'
         );
         $statement->execute(array($id));
 
@@ -225,7 +230,7 @@ class Shorty {
      */
     public function find($url) {
         $statement = $this->connection->prepare(
-            'SELECT * FROM urls WHERE url = ?'
+            'SELECT * FROM shorty_urls WHERE url = ?'
         );
         $statement->execute(array($url));
 
@@ -242,7 +247,7 @@ class Shorty {
         $datetime = date('Y-m-d H:i:s');
 
         $statement = $this->connection->prepare(
-            'INSERT INTO urls (url, created) VALUES (?,?)'
+            'INSERT INTO shorty_urls (url, created) VALUES (?, ?)'
         );
         $statement->execute(array($url, $datetime));
 
@@ -258,7 +263,7 @@ class Shorty {
         $datetime = date('Y-m-d H:i:s');
 
         $statement = $this->connection->prepare(
-            'UPDATE urls SET hits = hits + 1, accessed = ? WHERE id = ?'
+            'UPDATE shorty_urls SET hits = hits + 1, accessed = ? WHERE id = ?'
         );
         $statement->execute(array($datetime, $id));
     }
@@ -277,9 +282,9 @@ class Shorty {
      * Sends a 404 response.
      */
     public function not_found() {
-        header('Status: 404 Not Found');
+        header('HTTP/1.0 404 Not Found');
         exit(
-            '<h1>404 Not Found</h1>'.
+            '<h1>404 Not Found</h1><hr/><p>The short URL you requested was not found in our records. Please check the URL for typos and try again.</p>' .
             str_repeat(' ', 512)
         );
     }
@@ -338,14 +343,30 @@ class Shorty {
                     $id = $this->store($url);
 
                     $url = $this->hostname.'/'.$this->encode($id);
-                }
-                else {
+
+                    // save encoded url id to database
+                    $statement = $this->connection->prepare(
+                        'UPDATE shorty_urls SET short = ? WHERE id = ?'
+                    );
+                    $statement->execute(array($this->encode($id), $id));
+
+
+                } else {
                     $url = $this->hostname.'/'.$this->encode($result['id']);
+
+                    // save encoded url id to database
+                    $statement = $this->connection->prepare(
+                        'UPDATE shorty_urls SET short = ? WHERE id = ?'
+                    );
+                    $statement->execute(array($this->encode($result['id']), $result['id']));
                 }
 
                 // Display the shortened url
                 switch ($format) {
                     case 'text':
+                        header('Content-Type: text/plain');
+                        // cross origin header
+                        header('Access-Control-Allow-Origin: *');
                         exit($url);
 
                     case 'json':
