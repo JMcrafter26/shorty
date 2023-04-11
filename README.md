@@ -80,7 +80,7 @@ By default anyone is allowed to enter a new URL for shortening. To restrict the 
 
 ## License
 
-Shorty is licensed under the [MIT](https://github.com/mikecao/shorty/blob/master/LICENSE) license.
+Shorty is licensed under the [MIT](https://github.com/jmcrafter26/shorty/blob/master/LICENSE) license. Note: This is a fork of [Mike Cao's Shorty](https://github.com/mikecao/shorty/)
 
 ## Stats
 
