@@ -1,5 +1,7 @@
 # Shorty :link:
 
+![Banner](https://raw.githubusercontent.com/JMcrafter26/shorty/master/.github/banner.jpg)
+
 <a href="https://github.com/jmcrafter26/shorty/releases/latest"><img src="https://api.jm26.net/badge/beta?url=https://img.shields.io/github/release/jmcrafter26/shorty.json&format=cap-l" height="20px" alt="Latest Release" style="display: inline-block; vertical-align: middle;"></a> <a href="https://github.com/JMcrafter26/shorty/blob/master/LICENSE"><img src="https://api.jm26.net/badge/beta?url=https://img.shields.io/github/license/jmcrafter26/shorty.json&format=cap-l" height="20px" alt="License" style="display: inline-block; vertical-align: middle;"></a> <img src="https://api.jm26.net/badge?g&label=It's%20even&message=~USEFUL~&color=pink" height="20px" alt="It's even ~USEFUL~" style="display: inline-block; vertical-align: middle;">
 
 Shorty is a simple URL shortener for PHP, now with a simple interface.
