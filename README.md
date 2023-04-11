@@ -1,14 +1,26 @@
-# Shorty
+# Shorty :link:
 
-Shorty is a simple URL shortener for PHP.
+<a href="https://github.com/jmcrafter26/shorty/releases/latest"><img src="https://api.jm26.net/badge/beta?url=https://img.shields.io/github/release/jmcrafter26/shorty.json" height="20px" alt="Latest Release" style="display: inline-block; vertical-align: middle;"></a> <a href="https://github.com/JMcrafter26/shorty/blob/master/LICENSE"><img src="https://api.jm26.net/badge/beta?url=https://img.shields.io/github/license/jmcrafter26/shorty.json" height="20px" alt="License" style="display: inline-block; vertical-align: middle;"></a> <!-- Latest version tag --> <a href="https://github.com/jmcrafter26/shorty/releases/latest"><img src="https://api.jm26.net/badge/beta?url=https://img.shields.io/github/v/release/jmcrafter26/shorty.json" height="20px" alt="Latest Version" style="display: inline-block; vertical-align: middle;"></a>
+
+Shorty is a simple URL shortener for PHP, now with a simple interface.
+
+## Features
+
+* Fast and lightweight :rocket:
+* Very easy to install :package:
+* Simple interface :sparkles:
+* Highly customizable :wrench:
+* RESTful API :computer:
+* Whitelist support :lock:
+
+
+<div>Table of contents: <a href="#installation">Installation</a> | <a href="#generating-short-urls">Generating short URLs</a> | <a href="#api">API</a> | <a href="#whitelist">Whitelist</a> | <a href="#requirements">Requirements</a> | <a href="#license">License</a> | <a href="#stats">Stats</a></div>
 
 ## Installation
 
-1\. Download and extract the files to your web directory.
+1\. [Download](https://github.com/JMcrafter26/shorty/releases/latest) and extract the files to your web directory.
 
-2\. Use the included `database.sql` file to create a table to hold your URLs.
-
-3\. Configure your webserver.
+2\. Add a rewrite rule to your server:
 
 For **Apache**, edit your `.htaccess` file with the following:
 
@@ -25,9 +37,13 @@ For **Nginx**, add the following to your server declaration:
         }
     }
 
-4\. Edit the `config.php` file.
+3\. Configure your Database credentials and other settings in the `config.php` file
 
 ## Generating short URLs
+
+Simply head to your Shorty installation from your browser and navigate to `/shorten.html` for the simple interface.
+
+## API
 
 To generate a short URL, simply pass in a `url` query parameter to your Shorty installation:
 
@@ -48,8 +64,7 @@ The possible formats are `html`, `xml`, `text`, and `json`.
 
 ## Whitelist
 
-By default anyone is allowed to enter a new URL for shortening. To restrict the saving of URLs to 
-certain IP addresses, use the `allow` function:
+By default anyone is allowed to enter a new URL for shortening. To restrict the saving of URLs to certain IP addresses, use the `allow` function:
 
     $shorty->allow('192.168.0.10');
 
@@ -57,7 +72,17 @@ certain IP addresses, use the `allow` function:
 
 * PHP 5.1+
 * PDO extension
+* MySQL or SQLite database
 
 ## License
 
 Shorty is licensed under the [MIT](https://github.com/mikecao/shorty/blob/master/LICENSE) license.
+
+## Stats
+
+<a href="https://github.com/JMcrafter26/shorty/stargazers" target="_blank"><img src="https://api.jm26.net/badge/beta?url=https://shields.io/github/stars/jmcrafter26/shorty.json&color=FFDB2D&label=Stars" height="20px" alt="Stars " style="display: inline-block; vertical-align: middle;"></a>
+<a href="https://github.com/JMcrafter26/shorty/graphs/contributors" target="_blank"><img src="https://api.jm26.net/badge/beta?url=https://img.shields.io/github/contributors/jmcrafter26/shorty.json&color=blue&format=cap" height="20px" style="display: inline-block; vertical-align: middle;"></a>
+<img src="https://api.jm26.net/badge/beta.php?url=https://api.countapi.xyz/hit/jmcrafter26/shorty.json&label=Repo%20visits&color=green" height="20px" alt="Get these COOL BADGES" style="display: inline-block; vertical-align: middle;">
+<a href="https://github.com/JMcrafter26/php-badges" target="_blank"><img src="https://api.jm26.net/badge/beta?g&label=Get%20these&icon=f41b&message=COOL%20BADGES&color=de4ff4" height="20px" alt="Get these COOL BADGES" style="display: inline-block; vertical-align: middle;"></a>
+
+Made by a [HUMAN 😵](https://github.com/JMcrafter26)
