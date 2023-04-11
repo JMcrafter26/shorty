@@ -12,6 +12,7 @@ Shorty is a simple URL shortener for PHP, now with a simple interface.
 * Highly customizable :wrench:
 * RESTful API :computer:
 * Whitelist support :lock:
+* Bot protection :robot:
 
 
 <div>Table of contents: <a href="#installation">Installation</a> | <a href="#generating-short-urls">Generating short URLs</a> | <a href="#api">API</a> | <a href="#whitelist">Whitelist</a> | <a href="#requirements">Requirements</a> | <a href="#license">License</a> | <a href="#stats">Stats</a></div>
@@ -38,6 +39,8 @@ For **Nginx**, add the following to your server declaration:
     }
 
 3\. Configure your Database credentials and other settings in the `config.php` file
+
+4\. To use the recaptcha, you need to get a site key and secret key from [here](https://www.google.com/recaptcha/admin/create) and replace the *xxxxxxxx* in the recaptcha div `<div class="g-recaptcha" data-sitekey="xxxxxxxxxx" data-callback="verifyCaptcha"></div>` in `shorten.html` with your site key.
 
 ## Generating short URLs
 
