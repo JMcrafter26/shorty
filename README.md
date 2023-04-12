@@ -18,7 +18,7 @@ Shorty is a simple URL shortener for PHP, now with a simple interface.
 
 **An UI Demo is available [here](https://test.jm26.net/shorty-demo)**
 
-<div>Table of contents: <a href="#installation">Installation</a> | <a href="#generating-short-urls">Generating short URLs</a> | <a href="#api">API</a> | <a href="#whitelist">Whitelist</a> | <a href="#requirements">Requirements</a> | <a href="#license">License</a> | <a href="#stats">Stats</a></div>
+<div>Table of contents: <a href="#installation">Installation</a> | <a href="#generating-short-urls">Generating short URLs</a> | <a href="#api">API</a> | <a href="#whitelist">Whitelist</a> | <a href="#requirements">Requirements</a> | <a href="#license">License</a> | <a href="#stats">Stats</a> | <a href="#future-plans">Future Plans</a> </div>
 
 ## Installation
 
@@ -79,6 +79,12 @@ By default anyone is allowed to enter a new URL for shortening. To restrict the 
 * PHP 5.1+
 * PDO extension
 * MySQL or SQLite database
+
+## Future Plans
+
+I am working on a simple admin panel for shorty. 
+
+I will release it when it's done.
 
 ## License
 
